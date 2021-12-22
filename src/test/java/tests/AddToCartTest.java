@@ -16,8 +16,6 @@ import static org.testng.Assert.assertEquals;
 
 public class AddToCartTest extends BaseTest {
 
-    BasePage basePage = new BasePage(driver);
-    CategoryPage categoryPage = new CategoryPage(driver);
 
     String product;
 
@@ -38,12 +36,14 @@ public class AddToCartTest extends BaseTest {
 
     @Test(priority = 1)
     public void clickOnNavigationBar() {
+        BasePage basePage = new BasePage(driver);
         basePage.SelectedNavigationButton().click();
 
     }
 
     @Test(priority = 2)
     public void selectShowAll() {
+        CategoryPage categoryPage = new CategoryPage(driver);
         categoryPage.showAllProduct().click();
     }
 
@@ -56,6 +56,7 @@ public class AddToCartTest extends BaseTest {
 
     @Test(priority = 4)
     public void makeProductsVisibleInList() {
+        CategoryPage categoryPage = new CategoryPage(driver);
         categoryPage.showAllInList().click();
     }
 

@@ -11,7 +11,8 @@ import static org.testng.Assert.assertTrue;
 
 public class LoginTest extends BaseTest {
     BasePage basePage = new BasePage(driver);
-    AccountPage accountPage = new AccountPage(driver);
+
+
 
     @Test(priority = 1)
     public void clickOnTopSelectedLink() {
@@ -26,6 +27,7 @@ public class LoginTest extends BaseTest {
 
     @Test(priority = 3)
     public void checkNewCustomerBlockIsVisible() {
+        AccountPage accountPage = new AccountPage(driver);
         boolean blockName = driver.findElement(accountPage.blockName).isDisplayed();
         assertTrue(blockName, "Block is not displayed");
 
@@ -33,6 +35,7 @@ public class LoginTest extends BaseTest {
 
     @Test(priority = 4)
     public void enterEmailPasswordAndClickLogin() {
+        AccountPage accountPage = new AccountPage(driver);
         accountPage.getEmailInput().sendKeys("testas@gmail.com");
         accountPage.passwordInput().sendKeys("12345");
         accountPage.submitButton().click();
@@ -40,6 +43,7 @@ public class LoginTest extends BaseTest {
 
     @Test(priority = 5)
     public void checkAlertMessageIsVisible() {
+        AccountPage accountPage = new AccountPage(driver);
         String actualAlertText = accountPage.getAlertMessage().getText();
         String expectedAlertText = "Warning: No match for E-Mail Address and/or Password.";
         assertEquals(actualAlertText,expectedAlertText,"Ooops something wrong with alert");

@@ -8,6 +8,7 @@ public class AccountPage {
     public WebDriver driver;
 
     public AccountPage(WebDriver driver) {
+        super();
         this.driver = driver;
     }
 
